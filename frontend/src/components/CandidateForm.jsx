@@ -25,7 +25,7 @@ const CandidateForm = () => {
     const skillsArray = formData.skills.split(',').map(skill => skill.trim()).filter(s => s);
 
     try {
-      const response = await fetch('http://localhost:5000/api/candidates', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/candidates`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
